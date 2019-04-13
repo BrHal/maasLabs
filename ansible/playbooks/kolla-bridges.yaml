@@ -1,0 +1,18 @@
+network:
+    version: 2
+    vlans:
+        vlan.1:
+            id: 1
+            link: eno2
+        vlan.2:
+            id: 2
+            link: eno2
+    bridges:
+        br_kolla:
+            interfaces:
+                - vlan.1
+            mtu: 1500
+        br_public:
+            interfaces:
+                - vlan.2
+            mtu: 1500

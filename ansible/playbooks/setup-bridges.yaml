@@ -1,0 +1,26 @@
+---
+- hosts: baremetal
+  become: yes
+  gather_facts: False
+  vars:
+    netplan_dir:
+      "/etc/netplan"
+    netplan_user:
+      "root"
+    netplan_group:
+      "root"
+  tasks:
+  - name:
+      setup vlans and bridges
+    copy:
+      src: "kolla-bridges.yaml"
+      dest: "{{netplan_dir}}/51-kolla.yaml"
+      owner: "{{netplan_user}}"
+      group: "{{netplan_group}}"
+      mode: 0644
+    notify:
+      netplan
+  handlers:
+    - name: netplan
+      shell: netplan apply
+

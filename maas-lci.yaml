@@ -63,6 +63,18 @@ nodes_list:
           - "/var/log,ext4,19998441472"
           - "/,ext4,199996997632"
           - "/var/lib/lxc,ext4,259157655552"
+  - mac: "00:1e:67:ec:2C:83"
+    name: "lma-ns6637451"
+    power: "manual"
+    tags: "{{ maas_ceil_tags }}"
+    devices:
+      - name: "sda"
+        tags: "os"
+        partitions:
+          - "/boot,ext4,398458880"
+          - "/var/log,ext4,19998441472"
+          - "/,ext4,199996997632"
+          - "/var/lib/lxc,ext4,259157655552"
   - mac: "00:1e:67:ec:90:d3"
     name: "lma-ns6727240"
     power: "manual"
